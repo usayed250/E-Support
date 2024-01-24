@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safura's Fitness Hub</title>
+</head>
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
+<style>
+    /*CSS Reset*/
+    body {
+        font-family: 'Aboreto', cursive;
+        margin: 0px;
+        padding: 0px;
+        background-image: url(photo-1519038002825-79cb69b03499.avif);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+
+    .left {
+        margin: 54px;
+        background-image: url(IDrive_logo_white.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        width: 50px;
+        height: 50px;
+
+        color: whitesmoke;
+        position: absolute;
+        left: 35px;
+        top: 0px;
+        display: inline-block;
+        /* border: 2px solid red; */
+        margin: 12px;
+
+    }
+
+    .left div {
+        position: relative;
+        top: 42px;
+        text-align: center;
+        font-size: 7px;
+    }
+
+    .mid {
+        display: block;
+        width: 50%;
+        margin: 12px auto;
+        /* border: 2px solid blue; */
+
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 15px;
+        margin: auto;
+    }
+
+    .navbar a:hover,
+    a.active {
+        text-decoration: none;
+        color: blue;
+
+    }
+
+
+    .right {
+        position: absolute;
+        right: 35px;
+        top: 0px;
+        /* border: 2px solid green; */
+        margin: 12px;
+
+    }
+
+
+    .btn {
+        font-family: 'Aboreto', cursive;
+        padding: 0px 19px;
+        margin: 0px 2px;
+        background-color: black;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: gray;
+    }
+
+    .container {
+        box-sizing: border-box;
+        width: 100%;
+        background-color: white;
+        border-radius: 15px;
+        margin: 100px auto;
+        padding: 50px 50px;
+
+    }
+
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+
+    .inputs {
+        font-family: 'Aboreto', cursive;
+        display: block;
+        margin: 10px 0px;
+        width: 97%;
+        text-align: center;
+        font-weight: bold;
+        color: blue;
+    }
+
+    .container button {
+        font-family: 'Aboreto', cursive;
+        cursor: pointer;
+        display: block;
+        margin: auto;
+    }
+</style>
+
+<body>
+    <header class="header">
+        <div class="left">
+        </div>
+        <div class="right">
+            <ul class="navbar">
+                <a href="#">About Us</a>
+                <a href="#">Products</a>
+                <a href="#">Careers at IDrive</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Blog</a>
+                <a href="#">Contact Us</a>
+            </ul>
+
+
+        </div>
+
+    </header>
+    <div style="margin-top: 10px; padding: 10px">
+        <h3>IDrive Support</h3>
+    </div>
+    <div class="mid">
+        <div class="container flex-container">
+            <h3>If you have any questions, reach out to us here:</h3>
+            <input type="text" id="name" class="inputs" placeholder="Enter your Name">
+            <input type="text" id="weight" class="inputs" placeholder="Enter your Weight in KGS">
+            <input type="text" id="height" class="inputs" placeholder="Enter your Height in meters">
+            <input type="radio" name="Sex" value="M" class="inputs1">
+            <label for="M"></label><strong>Male</strong><br>
+            <input type="radio" name="Sex" value="F" class="inputs1">
+            <label for="F">Female</label>f<br>
+            <input type="text" id="result" class="inputs" placeholder="BMI">
+
+
+            <button onclick="myBmi()">Calculate BMI</button>
+        </div>
+    </div>
+
+
+</body>
+<script>
+
+    document.getElementById("name").onkeyup = function (e) { myFunction(e) };
+    document.getElementById("weight").onkeyup = function (e) { myFunctionage(e) };
+    document.getElementById("height").onkeyup = function (e) { myFunctionage(e) };
+
+    function myFunction(e) {
+        var iKey = e.keycode || e.which || 0;
+        if (iKey >= 48 && iKey <= 57) {
+            event.preventDefault();
+        }
+
+    }
+    function myFunctionage(e) {
+        var iKey = e.keycode || e.which || 0;
+        if (iKey >= 65 && iKey <= 123) {
+            event.preventDefault();
+        }
+
+    }
+    function myBmi() {
+        let weight = document.getElementById("weight").value;
+        let height = document.getElementById("height").value;
+        let BMI = weight / (height * height);
+        BMI = BMI.toFixed(2);
+        console.log(BMI);
+        if (BMI < 18.5)
+            alert("Your BMI is " + BMI + " Jaa Jaake Khaa");
+        else if (BMI > 18.5 && BMI < 30)
+            alert("Your BMI is " + BMI + " Bas karde khana");
+        else if (BMI > 30) {
+            alert("Your BMI is " + BMI + " Fatt jayega");
+        }
+        document.getElementById("result").value = BMI;
+
+    }
+
+
+
+</script>
+
+</html>
